@@ -10,13 +10,12 @@
     font-family: sans-serif;
     margin-inline: 30%;
 }
-.obrazek {
-    
+  
 
-}
-img {width: 50vw;
+img {
+    width: 50vw;
     margin-top: 10%;}
-    
+
 h1 {
     font-family:  "Lobster", sans-serif;
     font-weight: lighter;
@@ -25,12 +24,18 @@ h1 {
 a {
     color:#ffffff ;
     text-decoration: none;
-
+    padding-block: 1rem;
 }
 
 .text {
     background-color: #283e50;
-}
+    text-align: center;
+    }
+.text p {
+    padding-inline: 10px;
+    margin: 0;
+    margin-bottom: 21px;
+} 
 .pravidla{
     background-color: #1fcca4;
 }
