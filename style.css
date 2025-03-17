@@ -1,0 +1,8 @@
+.uvod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: 50vw;
+}
