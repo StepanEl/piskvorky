@@ -1,20 +1,24 @@
 
+body{
+    background: linear-gradient(to bottom, #615dad, #ffc8da);
+    height: 100vh;
+    width: 100vw;
+}
+
 .uvod {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
-    flex-grow: 0;
     width: 50vw;
     color:#ffffff;
     font-family: sans-serif;
     margin-inline: 30%;
 }
   
-
 img {
     width: 50vw;
-    margin-top: 10%;}
+    margin-top: 10%;
+}
 
 h1 {
     font-family:  "Lobster", sans-serif;
@@ -31,14 +35,26 @@ a {
     background-color: #283e50;
     text-align: center;
     }
+
 .text p {
     padding-inline: 10px;
     margin: 0;
     margin-bottom: 21px;
 } 
-.pravidla{
+
+.pravidla {
     background-color: #1fcca4;
+    border-bottom:1px solid #283e50;
 }
+
+.pravidla:hover {
+    background-color: #1cbb96;
+}
+
 .hra {
     background-color: #0197f6;
+}
+
+.hra:hover {
+    background-color: #0090e9;
 }
