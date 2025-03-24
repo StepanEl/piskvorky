@@ -2,24 +2,30 @@
 
 body{
     background: linear-gradient(to bottom, #615dad, #ffc8da);
-    width: 100vw;
-    height: 100vh;
+    background-repeat: no-repeat;
+    min-width: 100vw;
+    min-height: 100vh;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
    }
+
 
 .uvod {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 45vw;
+    width: 90%;
+    max-width: 400px;
     color:#ffffff;
     font-family: sans-serif;
-    margin-inline: 25%;
    }
   
 img {
-    width: 45vw;
+    width: 90%;
     margin-top: 10%;
+    border-radius: 4% 4% 0 0;
 }
 
 h1 {
@@ -46,7 +52,7 @@ a {
 
 .pravidla {
     background-color: #1fcca4;
-    border-bottom:1px solid #283e50;
+    border: none;
 }
 
 .pravidla:hover {
@@ -56,6 +62,9 @@ a {
 .hra {
     background-color: #0197f6;
     margin-bottom: 5%;
+    border: none;
+    border-top: 1px solid #283e50;
+
 }
 
 .hra:hover {
