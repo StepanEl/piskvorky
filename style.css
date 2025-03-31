@@ -27,7 +27,6 @@ body {
 
 .uvod img {
     width: 90%;
-    margin-top: 10%;
     border-radius: 4% 4% 0 0;
 }
 
@@ -36,7 +35,7 @@ h1 {
     font-weight: lighter;
 }
 
-a {
+.uvod a {
     color: #ffffff;
     text-decoration: none;
     padding-block: 1rem;
@@ -58,7 +57,8 @@ a {
     border: none;
 }
 
-.pravidla:hover {
+.pravidla:hover,
+.pravidla:focus {
     background-color: #1cbb96;
 }
 
@@ -69,7 +69,8 @@ a {
     border-top: 1px solid #283e50;
 }
 
-.hra:hover {
+.hra:hover,
+.hra:focus {
     background-color: #0090e9;
 }
 
@@ -78,35 +79,51 @@ a {
     flex-direction: column;
     align-items: center;
     max-width: 80vmin;
-    height: 90vh;
+}
 
+.game h1 {
+    font-size: 4rem;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    flex-shrink: 0;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    margin-bottom: 6px;
+    margin-block: 10px;
 }
 
-.null {
+.left-side {
+    display: flex;
+    flex-direction: row;
     flex-grow: 2;
-    background-color: transparent;
 }
 
-nav button {
-    border: none;
+.home {
+    background-color: #0197f6;
+    margin-right: 6px;
     border-radius: 10%;
     padding: 6px;
 }
 
-.home {
-    background-color: #0197f6; 
-    margin-right: 6px;
+.home:hover,
+.home:focus {
+    background-color: #0090e9;
 }
 
 .restart {
     background-color: #1fcca4;
+    border-radius: 10%;
+    padding: 6px;
+}
+
+.restart:hover,
+.restart:focus  {
+    background-color: #1cbb96;
 }
 
 .player {
@@ -114,19 +131,34 @@ nav button {
     display: flex;
     align-items: center;
     font-weight: bold;
-    padding-right: 6px;
+    font-size: 1.5rem;
+    padding-right: 10px;
 }
+
+.circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
 .game-board {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-grow: 1;
-    
+    padding-bottom: 5%;
+
 }
+
 .game-cell {
     width: calc(100%/10);
-    height: calc(100%/10);
-    display: flex;
     background-color: rgba(240, 240, 240, 0.5);
     border-width: 1px;
+    aspect-ratio: 1 / 1;
 }
+
+.game-cell:hover,
+.game-cell:focus  {
+    background-color: rgba(240, 240, 240, 0.658);
+}
+
