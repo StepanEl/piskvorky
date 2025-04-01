@@ -104,7 +104,7 @@ nav {
 }
 
 .home {
-    background-color: #0197f6;
+    background-color: #1fcca4;
     margin-right: 6px;
     border-radius: 10%;
     padding: 6px;
@@ -112,18 +112,18 @@ nav {
 
 .home:hover,
 .home:focus {
-    background-color: #0090e9;
+    background-color: #1cbb96;
 }
 
 .restart {
-    background-color: #1fcca4;
+    background-color: #0197f6;
     border-radius: 10%;
     padding: 6px;
 }
 
 .restart:hover,
 .restart:focus  {
-    background-color: #1cbb96;
+    background-color: #0090e9;
 }
 
 .player {
