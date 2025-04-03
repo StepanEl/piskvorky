@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
 }
-
+/*stylování pozadí*/
 body {
     background: linear-gradient(to bottom, #615dad, #ffc8da);
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@ body {
     font-family: sans-serif;
 }
 
-
+/*stylování obsahu na úvodní straně*/
 .uvod {
     display: flex;
     flex-direction: column;
@@ -52,6 +52,7 @@ h1 {
     margin-bottom: 21px;
 }
 
+/*stylování tlačítek na úvodu*/
 .pravidla {
     background-color: #1fcca4;
     border: none;
@@ -74,6 +75,7 @@ h1 {
     background-color: #0090e9;
 }
 
+/*stylování strany s hracím polem*/
 .game {
     display: flex;
     flex-direction: column;
@@ -89,6 +91,7 @@ h1 {
     flex-shrink: 0;
 }
 
+/*stylování tlačítek nad hracím polem*/
 nav {
     display: flex;
     justify-content: space-between;
@@ -142,6 +145,7 @@ nav {
     border-radius: 50%;
 }
 
+/*stylování hracího pole*/
 .game-board {
     display: flex;
     flex-direction: row;
