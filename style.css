@@ -60,7 +60,8 @@ h1 {
 
 .pravidla:hover,
 .pravidla:focus {
-    background-color: #1cbb96;
+    background-color: #1cbb96; 
+    cursor: pointer; 
 }
 
 .hra {
@@ -116,6 +117,7 @@ nav {
 .home:hover,
 .home:focus {
     background-color: #1cbb96;
+    cursor: pointer;
 }
 
 .restart {
@@ -127,6 +129,7 @@ nav {
 .restart:hover,
 .restart:focus  {
     background-color: #0090e9;
+    cursor: pointer;
 }
 
 .player {
@@ -151,7 +154,6 @@ nav {
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 5%;
-
 }
 
 .game-cell {
@@ -163,6 +165,22 @@ nav {
 
 .game-cell:hover,
 .game-cell:focus  {
-    background-color: rgba(240, 240, 240, 0.658);
+    background-color: rgba(240, 240, 240, 0.772);
+    cursor: pointer;
+}
+
+/*stylování pro Javascript*/
+.board_field--cross  {
+    background-image: url("podklady/cross-black.svg");
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.board_field--circle  {
+    background-image: url("podklady/circle-black.svg");
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
