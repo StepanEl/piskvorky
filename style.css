@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 90%;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .uvod img {
@@ -64,6 +64,7 @@ h1 {
     cursor: pointer; 
 }
 
+
 .hra {
     background-color: #0197f6;
     margin-bottom: 5%;
@@ -75,6 +76,7 @@ h1 {
 .hra:focus {
     background-color: #0090e9;
 }
+
 
 /*stylování strany s hracím polem*/
 .game {
@@ -119,6 +121,9 @@ nav {
     background-color: #1cbb96;
     cursor: pointer;
 }
+.home:active {
+    transform: scale(0.95)
+}
 
 .restart {
     background-color: #0197f6;
@@ -131,7 +136,9 @@ nav {
     background-color: #0090e9;
     cursor: pointer;
 }
-
+.restart:active {
+    transform: scale(0.95)
+}
 .player {
     text-transform: uppercase;
     display: flex;
@@ -147,6 +154,12 @@ nav {
     border: 3px solid white;
     border-radius: 50%;
 }
+.cross {
+    background-image: url(podklady/cross.svg);
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 
 /*stylování hracího pole*/
 .game-board {
@@ -168,19 +181,36 @@ nav {
     background-color: rgba(240, 240, 240, 0.772);
     cursor: pointer;
 }
+.game-cell:active {
+    transform: scale(0.95)
+}
 
 /*stylování pro Javascript*/
+@keyframes zoom-in {
+    from {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+  }
+
 .board_field--cross  {
     background-image: url("podklady/cross-black.svg");
-    background-size: 70% 70%;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .board_field--circle  {
     background-image: url("podklady/circle-black.svg");
+} 
+
+.board_field--circle, 
+.board_field--cross  {   
     background-size: 70% 70%;
     background-repeat: no-repeat;
     background-position: center;
 }
+
+
 
