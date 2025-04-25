@@ -172,7 +172,7 @@ nav {
 .game-cell {
     width: calc(100%/10);
     background-color: rgba(240, 240, 240, 0.5);
-    border-width: 1px;
+    border: 1px, solid, #283e50;
     aspect-ratio: 1 / 1;
 }
 
@@ -181,21 +181,9 @@ nav {
     background-color: rgba(240, 240, 240, 0.772);
     cursor: pointer;
 }
-.game-cell:active {
-    transform: scale(0.95)
-}
 
 /*stylování pro Javascript*/
-@keyframes zoom-in {
-    from {
-      transform: scale(0.5);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1.5);
-      opacity: 1;
-    }
-  }
+
 
 .board_field--cross  {
     background-image: url("podklady/cross-black.svg");
@@ -210,7 +198,7 @@ nav {
     background-size: 70% 70%;
     background-repeat: no-repeat;
     background-position: center;
-}
+   }
 
 
 
