@@ -1,6 +1,22 @@
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4'
 
 let currentPlayer = 'circle';
 const selectPlayer = document.querySelector('.select-player');
+
+const getFieldState = () => {
+    const pole = [];
+    gameCell.forEach((cell) => {
+        if (cell.classList.contains('board_field--circle')) {
+            pole.push('o');
+        } else if (cell.classList.contains('board_field--cross')) {
+            pole.push('x');
+        } else {
+            pole.push('_');
+        }
+    }
+    );
+    return pole;
+};
 
 const selectItem = (event) => {
     if (currentPlayer === 'circle') {
@@ -15,6 +31,22 @@ const selectItem = (event) => {
         selectPlayer.classList.remove('cross');
         selectPlayer.classList.add('circle');
         event.target.disabled = true;
+    };
+
+    const gameBoard = getFieldState()
+    const winner = findWinner(gameBoard)
+    if (winner === 'o' || winner === 'x') {
+        setTimeout(() => {
+            const winnerName = winner === 'o' ? '"O". Kolečko je vítěz' : '"X". Křížek je vítěz';
+            alert(`Vyhrál hráč se symbolem ${winnerName}.`);
+            location.reload();
+        }, 100)
+    }
+    else if (!gameBoard.includes('_')) {
+        setTimeout(() => {
+            alert('Hra skončila nerozhodně');
+            location.reload();
+        }, 100);
     }
 };
 
@@ -31,3 +63,7 @@ restartElement.addEventListener('click', (event) => {
         event.preventDefault();
     }
 });
+
+
+
+
