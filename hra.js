@@ -1,43 +1,34 @@
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4'
 
 let currentPlayer = 'circle';
-const selectPlayer = document.querySelector('.select-player');
 
+const selectPlayer = document.querySelector('.select-player');
+const gameCell = document.querySelectorAll('.game-cell');
+const restartElement = document.querySelector('.restart')
+
+//vytvoření pole - načtení všech políček
 const getFieldState = () => {
-    const pole = [];
+    const fieldArray = [];
     gameCell.forEach((cell) => {
         if (cell.classList.contains('board_field--circle')) {
-            pole.push('o');
+            fieldArray.push('o');
         } else if (cell.classList.contains('board_field--cross')) {
-            pole.push('x');
+            fieldArray.push('x');
         } else {
-            pole.push('_');
+            fieldArray.push('_');
         }
     }
     );
-    return pole;
+    return fieldArray;
 };
 
-const selectItem = (event) => {
-    if (currentPlayer === 'circle') {
-        event.target.classList.add('board_field--circle');
-        currentPlayer = 'cross';
-        selectPlayer.classList.remove('circle');
-        selectPlayer.classList.add('cross');
-        event.target.disabled = true;
-    } else {
-        event.target.classList.add('board_field--cross');
-        currentPlayer = 'circle';
-        selectPlayer.classList.remove('cross');
-        selectPlayer.classList.add('circle');
-        event.target.disabled = true;
-    };
-
+//kontrola výhry
+const checkGameState = () => {
     const gameBoard = getFieldState()
     const winner = findWinner(gameBoard)
     if (winner === 'o' || winner === 'x') {
         setTimeout(() => {
-            const winnerName = winner === 'o' ? '"O". Kolečko je vítěz' : '"X". Křížek je vítěz';
+            const winnerName = winner === 'o' ? '"O". Kolečko je vítěz' : '"X". Křížek zvítězil';
             alert(`Vyhrál hráč se symbolem ${winnerName}.`);
             location.reload();
         }, 100)
@@ -50,13 +41,65 @@ const selectItem = (event) => {
     }
 };
 
-const gameCell = document.querySelectorAll('.game-cell');
+//Připojení AI hráče
+const suggestNextMove = async () => {
+    const response = await fetch('https://piskvorky.czechitas-podklady.cz/api/suggest-next-move', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            board: getFieldState(),
+            player: 'x',
+        }),
+    })
+    const data = await response.json();
+    const { x, y } = data.position
+    const field = gameCell[x + y * 10]
+    field.click()
+
+    checkGameState()
+};
+
+//Výběr hráče
+const selectItem = (event) => {
+    if (
+        event.target.classList.contains('board_field--circle')
+        ||
+        event.target.classList.contains('board_field--cross')
+    ) {
+        return;
+    }
+
+    if (currentPlayer === 'circle') {
+        event.target.classList.add('board_field--circle');
+        event.target.disabled = true;
+        currentPlayer = 'cross';
+        selectPlayer.classList.remove('circle');
+        selectPlayer.classList.add('cross');
+
+        checkGameState()
+
+        if (currentPlayer === 'cross') {
+            suggestNextMove()
+        }
+    } else {
+        event.target.classList.add('board_field--cross');
+        event.target.disabled = true;
+        currentPlayer = 'circle';
+        selectPlayer.classList.remove('cross');
+        selectPlayer.classList.add('circle');
+    }
+};
+
+//Posluchač události při kliknutí
 gameCell.forEach((cell) => {
     cell.addEventListener('click', selectItem);
-})
+});
 
 
-const restartElement = document.querySelector('.restart')
+
+//Restart hry
 restartElement.addEventListener('click', (event) => {
     const askRestart = confirm('Opravdu chceš začít znova?');
     if (askRestart === false) {
