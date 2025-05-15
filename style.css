@@ -83,7 +83,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 80vmin;
+    max-width: 70vmin;
 }
 
 .game h1 {
