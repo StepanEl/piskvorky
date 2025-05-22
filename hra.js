@@ -1,10 +1,24 @@
 import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4'
 
+
 let currentPlayer = 'circle';
 
+
+const board = document.querySelector('.game-board');
 const selectPlayer = document.querySelector('.select-player');
+const restartElement = document.querySelector('.restart');
+const homeElement = document.querySelector('.home');
+
+//Vytvoření herního pole
+let buttonsHTML = '';
+
+for (let i = 0; i < 100; i++) {
+    buttonsHTML += '<button class="game-cell"></button>';
+}
+board.innerHTML = buttonsHTML
+
 const gameCell = document.querySelectorAll('.game-cell');
-const restartElement = document.querySelector('.restart')
+
 
 //vytvoření pole - načtení všech políček
 const getFieldState = () => {
@@ -108,5 +122,10 @@ restartElement.addEventListener('click', (event) => {
 });
 
 
-
+homeElement.addEventListener('click', (event) => {
+    const askHome = confirm('Tímto krokem přerušiš hru, souhlasíš?');
+    if (askHome === false) {
+        event.preventDefault();
+    }
+});
 
